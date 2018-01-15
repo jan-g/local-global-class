@@ -29,3 +29,16 @@ if __name__ == '__main__':
         # If we have more than one, this is basically a non-starter.
         init_triangle(x, y, z)
         print(describe_triangle(), "has area", area_triangle())
+
+# This is worth editorialising over: when should you do this, and when not?
+# If you ever find yourself writing a for loop that repeatedly resets global
+# variables, that's a sign that you need a different approach.
+
+# If you truly have a logical 'singleton' - that is, one instance of some idea
+# is all you'll need and all parts of the program that refer to it should refer
+# to the same copy, this is perhaps an acceptable approach.
+
+# See, for instance, the Python 'logging' module. There is one copy of the
+# global logging configuration, referred to by a module-level variable.
+# Individual 'Logger' objects may be more than one in number, and thus are
+# represented as distinct instances of a class (see the following example).
